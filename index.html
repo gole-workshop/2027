@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GOLE 2027 · Atelier EGC 2027</title>
+<meta name="description" content="GOLE 2027 : Graphes de connaissances et Ontologies, de l'Apprentissage à l'Exploitation. Atelier de la conférence EGC 2027, Poitiers - Futuroscope.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16233a; --text:#2b3445; --muted:#5d6779; --bg:#ffffff; --soft:#f3f6f8;
+  --line:#dde3ea; --accent:#0e7c66; --accent-soft:#e3f2ee; --mark:#c98a12;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --ink:#eef2f7; --text:#d6dde7; --muted:#9aa6b6; --bg:#111a28; --soft:#18243a;
+         --line:#2a3850; --accent:#5fd0b4; --accent-soft:#17352f; --mark:#e8b64f; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 "Source Sans 3",system-ui,sans-serif}
+a{color:var(--accent)}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;color:var(--ink);line-height:1.2}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:1.25rem;height:3.5rem;overflow-x:auto;white-space:nowrap}
+nav .brand{font-family:"Source Serif 4",serif;font-weight:700;color:var(--ink);text-decoration:none;margin-right:auto}
+nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+nav a:hover{color:var(--accent)}
+
+/* hero */
+header.hero{padding:3.5rem 0 2.5rem;border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:center}
+.eyebrow{color:var(--accent);font-weight:600;margin:0 0 .5rem}
+.hero h1{font-size:clamp(1.9rem,4vw,2.8rem);margin:0 0 1rem}
+.hero .where{font-size:1.1rem;color:var(--muted);margin:0 0 1.5rem}
+.btn{display:inline-block;background:var(--accent);color:var(--bg);padding:.6rem 1.1rem;border-radius:6px;text-decoration:none;font-weight:600;margin-right:.6rem}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.graph{width:100%;height:auto}
+.graph line{stroke:var(--line);stroke-width:2}
+.graph circle{fill:var(--bg);stroke:var(--accent);stroke-width:2.5}
+.graph circle.hub{fill:var(--accent)}
+.graph text{fill:var(--muted);font:600 13px "Source Sans 3",sans-serif}
+
+/* sections */
+section{padding:3rem 0;border-bottom:1px solid var(--line)}
+section h2{font-size:1.75rem;margin:0 0 1.25rem}
+.lead{font-size:1.08rem;max-width:46rem}
+.axes{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.25rem;margin-top:1.5rem}
+.axis{background:var(--soft);border-radius:8px;padding:1.25rem 1.25rem .5rem;border-top:3px solid var(--accent)}
+.axis .num{font-family:"Source Serif 4",serif;font-weight:700;color:var(--accent);font-size:1.4rem}
+.axis h3{font-size:1.12rem;margin:.3rem 0 .75rem}
+.axis ul{padding-left:1.1rem;margin:0 0 .75rem;font-size:.97rem}
+.axis li{margin-bottom:.35rem}
+
+/* dates */
+.dates{list-style:none;padding:0;margin:0;max-width:40rem}
+.dates li{display:grid;grid-template-columns:10rem 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px dashed var(--line)}
+.dates time{font-weight:600;color:var(--ink)}
+.tbc{color:var(--mark);font-weight:600}
+.note{background:var(--accent-soft);border-left:4px solid var(--accent);padding:.9rem 1.1rem;border-radius:0 6px 6px 0;max-width:46rem}
+
+/* program & committees */
+.pending{color:var(--muted);font-style:italic}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:2rem}
+.people{list-style:none;padding:0;margin:0}
+.people li{padding:.35rem 0}
+.people span{color:var(--muted)}
+
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr}
+  .graph{max-width:22rem}
+  .dates li{grid-template-columns:1fr;gap:.1rem}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#">GOLE 2027</a>
+  <a href="#presentation">Présentation</a>
+  <a href="#themes">Thèmes</a>
+  <a href="#dates">Dates</a>
+  <a href="#soumission">Soumission</a>
+  <a href="#programme">Programme</a>
+  <a href="#comites">Comités</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">Atelier de la conférence EGC 2027 · 3<sup>e</sup> édition</p>
+    <h1>Graphes de connaissances et Ontologies : de l'Apprentissage à l'Exploitation</h1>
+    <p class="where">Poitiers - Futuroscope, ENSMA · <span class="tbc">date à confirmer</span> (EGC : 1<sup>er</sup>–5 février 2027)</p>
+    <a class="btn" href="#soumission">Soumettre un article</a>
+    <a class="btn ghost" href="https://gole-workshop.github.io/">Éditions précédentes</a>
+  </div>
+  <svg class="graph" viewBox="0 0 320 240" role="img" aria-label="Schéma d'un graphe de connaissances">
+    <line x1="160" y1="120" x2="70" y2="55"/><line x1="160" y1="120" x2="255" y2="50"/>
+    <line x1="160" y1="120" x2="60" y2="185"/><line x1="160" y1="120" x2="260" y2="190"/>
+    <line x1="70" y1="55" x2="255" y2="50"/><line x1="60" y1="185" x2="70" y2="55"/>
+    <line x1="260" y1="190" x2="255" y2="50"/><line x1="160" y1="120" x2="160" y2="215"/>
+    <circle class="hub" cx="160" cy="120" r="14"/>
+    <circle cx="70" cy="55" r="10"/><circle cx="255" cy="50" r="10"/>
+    <circle cx="60" cy="185" r="10"/><circle cx="260" cy="190" r="10"/><circle cx="160" cy="215" r="8"/>
+    <text x="70" y="30" text-anchor="middle">Ontologie</text>
+    <text x="255" y="25" text-anchor="middle">LLM</text>
+    <text x="60" y="215" text-anchor="middle">GNN</text>
+    <text x="260" y="220" text-anchor="middle">RAG</text>
+    <text x="198" y="128">KG</text>
+  </svg>
+</div></header>
+
+<main>
+<section id="presentation"><div class="wrap">
+  <h2>Présentation</h2>
+  <p class="lead">Les graphes de connaissances et les ontologies sont de plus en plus exploités pour des applications différentes (question-answering, recherche d'information, recommandation…) et dans des domaines variés (entreprise, formation, santé…). Leur construction a été au cœur de nombreuses approches, progressant d'une élaboration entièrement manuelle vers des techniques semi-automatiques, puis automatiques. Avec l'avènement de l'apprentissage profond et des LLMs (Large Language Models), de nombreux outils et méthodes ont émergé pour optimiser et automatiser cette construction à grande échelle. Ces graphes et ontologies jouent désormais aussi un rôle central dans des approches avancées, comme les réseaux de neurones sur graphes (GNN), pour mieux exploiter les relations entre données.</p>
+  <p class="lead">L'objectif de cet atelier est de faire le point sur les avancées concernant les graphes de connaissances (KG) et les ontologies selon trois axes : leur apprentissage, leur utilisation pour l'apprentissage, et leur exploitation dans divers domaines et applications. Il offre aux chercheurs académiques et aux industriels l'occasion de partager leurs travaux et de créer des synergies en vue de collaborations et de projets communs.</p>
+</div></section>
+
+<section id="themes"><div class="wrap">
+  <h2>Thèmes de l'atelier</h2>
+  <div class="axes">
+    <div class="axis">
+      <div class="num">1</div>
+      <h3>Apprendre les graphes de connaissances et les ontologies</h3>
+      <ul>
+        <li>Apprentissage supervisé ou non supervisé avec des algorithmes classiques (SVM, arbres de décision, KMeans, DBSCAN…)</li>
+        <li>Deep Learning, y compris les GNNs</li>
+        <li>LLMs pour la création et l'enrichissement de KGs et d'ontologies</li>
+        <li>Approches hybrides et autres techniques innovantes</li>
+      </ul>
+    </div>
+    <div class="axis">
+      <div class="num">2</div>
+      <h3>Apprendre avec les graphes de connaissances et les ontologies</h3>
+      <ul>
+        <li>Representation et feature learning</li>
+        <li>KGs et ontologies pour l'apprentissage classique et le Deep Learning</li>
+        <li>KGs et ontologies pour les LLMs ; connaissances préalables pour le fine-tuning des PLM et LLM</li>
+        <li>Atténuation et correction des hallucinations des LLMs</li>
+      </ul>
+    </div>
+    <div class="axis">
+      <div class="num">3</div>
+      <h3>Exploiter les graphes de connaissances et les ontologies</h3>
+      <ul>
+        <li>Domaines : entreprise, santé, géographie, formation et éducation, science et recherche, culture et patrimoine…</li>
+        <li>Applications : question-answering, recherche d'information, RAG, recommandation, classification de textes et annotation sémantique, analyse prédictive et décisionnelle…</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="dates"><div class="wrap">
+  <h2>Dates importantes</h2>
+  <ul class="dates">
+    <li><time class="tbc">à confirmer</time><span>Date limite de soumission des articles</span></li>
+    <li><time class="tbc">à confirmer</time><span>Notification aux auteurs</span></li>
+    <li><time class="tbc">à confirmer</time><span>Version finale</span></li>
+    <li><time class="tbc">à confirmer</time><span>Atelier, pendant EGC 2027 (1<sup>er</sup>–5 février 2027)</span></li>
+  </ul>
+</div></section>
+
+<section id="soumission"><div class="wrap">
+  <h2>Soumission</h2>
+  <p class="lead">Deux types de contributions sont acceptés, en français ou en anglais :</p>
+  <ul class="lead">
+    <li><strong>Articles</strong> de 4 à 8 pages, au format RNTI ;</li>
+    <li><strong>Résumés étendus</strong> de 2 pages (même format) d'articles déjà acceptés dans des conférences ou revues internationales.</li>
+  </ul>
+  <p class="lead">Les soumissions se font sur EasyChair, via la conférence EGC 2027, en choisissant la piste de l'atelier GOLE. <span class="tbc">Lien et feuille de style à venir.</span></p>
+  <p class="note">Les articles acceptés sont publiés dans les actes des ateliers EGC (éditions RNTI). Actes de l'édition 2026 : <a href="https://editions-rnti.fr/?procid=100194">editions-rnti.fr</a>.</p>
+</div></section>
+
+<section id="programme"><div class="wrap">
+  <h2>Programme</h2>
+  <p class="pending">Le programme sera publié après la notification aux auteurs.</p>
+</div></section>
+
+<section id="comites"><div class="wrap">
+  <h2>Comités</h2>
+  <div class="cols">
+    <div>
+      <h3>Organisation</h3>
+      <ul class="people">
+        <li>Mounira Harzallah <span>· LS2N, Nantes Université</span></li>
+        <li>Davide Buscaldi <span>· LIPN, Université Sorbonne Paris Nord</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Comité de programme</h3>
+      <ul class="people">
+        <li>Giuseppe Berio <span>· IRISA, Université Bretagne Sud</span></li>
+        <li>Davide Buscaldi <span>· LIPN, Université Sorbonne Paris Nord</span></li>
+        <li>Catherine Faron <span>· Université Côte d'Azur</span></li>
+        <li>Fabrice Guillet <span>· LS2N, Nantes</span></li>
+        <li>Mounira Harzallah <span>· LS2N, Nantes</span></li>
+        <li>Ryutaro Ichise <span>· Ichise Lab, Tokyo</span></li>
+        <li>Othmane Kabal <span>· LS2N, Nantes</span></li>
+        <li>Hala Skaf <span>· LS2N, Nantes</span></li>
+        <li>Ziwei Xu <span>· Ichise Lab, Tokyo</span></li>
+        <li>Haïfa Zargayouna <span>· LIPN, Université Sorbonne Paris Nord</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  GOLE · atelier de la conférence <a href="https://egc2027.ensma.fr/">EGC 2027</a> ·
+  <a href="https://gole-workshop.github.io/">toutes les éditions</a>
+</div></footer>
+</body>
+</html>
